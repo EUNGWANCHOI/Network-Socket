@@ -21,12 +21,12 @@ serverSock.listen(1) #클라이언트의 접속을 기다림
 
 print("%d번 포트에서 접속 대기중..." %port)
 
-connestionSock, addr = serverSock.accept() #클라이언트 접속 허용
+connectionSock, addr = serverSock.accept() #클라이언트 접속 허용
 
 print(str(addr), "에서 접속하였습니다.")
 
-sender = threading.Thread(target=send, args=(connestionSock,))
-receiver = threading.Thread(target=receive, args=(connestionSock,))
+sender = threading.Thread(target=send, args=(connectionSock,))
+receiver = threading.Thread(target=receive, args=(connectionSock,))
 
 sender.start()
 receiver.start()
